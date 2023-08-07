@@ -30,15 +30,23 @@
                     <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem
                         modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus
                         ipsam minima ea iste laborum vero?</p>
-                    <div class="d-flex">
+                    <div class="">
                         <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1"
                             style="max-width: 3rem" />
-                        <form action="{{route('paypal.payment')}}" method="post">
+                        <form action="{{route('paypal.payment')}}" method="post" class="mt-3">
                             @csrf
                             <input type="hidden" value="40" name="price">
                             <button class="btn btn-outline-dark flex-shrink-0" type="submit">
                                 <i class="bi-cart-fill me-1"></i>
-                                Buy Now
+                                Buy Now With PayPal
+                            </button>
+                        </form>
+                        <form action="{{route('stripe.payment')}}" method="post" class="mt-3">
+                            @csrf
+                            <input type="hidden" value="40" name="price">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                                <i class="bi-cart-fill me-1"></i>
+                                Buy Now With Stripe
                             </button>
                         </form>
                     </div>
